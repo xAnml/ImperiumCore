@@ -62,7 +62,7 @@ public class RankCommand implements CommandExecutor {
                 return true;
 
             } else if (args[0].equalsIgnoreCase("get")) {
-                iPlayerManager.staff("§a" + offlinePlayer.getName() + "'s rank is currently " + iPlayer.getRank().getName() + "§a.");
+                sender.sendMessage("§a" + offlinePlayer.getName() + "'s rank is currently " + iPlayer.getRank().getName() + "§a.");
                 return true;
             } else {
                 sender.sendMessage(usage);

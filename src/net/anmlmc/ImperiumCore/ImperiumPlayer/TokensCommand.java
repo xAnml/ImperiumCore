@@ -51,7 +51,7 @@ public class TokensCommand implements CommandExecutor {
 
         if (args[0].equalsIgnoreCase("set")) {
 
-            int amount = 0;
+            int amount;
             try {
                 amount = Integer.parseInt(args[2]);
             } catch (NumberFormatException e) {
@@ -64,7 +64,7 @@ public class TokensCommand implements CommandExecutor {
             return true;
 
         } else if (args[0].equalsIgnoreCase("get")) {
-            iPlayerManager.staff("§a" + iPlayer.getTag() + "'s current tokens balance is §e" + iPlayer.getTokens() + "§a.");
+            sender.sendMessage("§a" + iPlayer.getTag() + "'s current tokens balance is §e" + iPlayer.getTokens() + "§a.");
             return true;
         } else {
             sender.sendMessage(usage);
