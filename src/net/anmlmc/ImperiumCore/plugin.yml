@@ -1,0 +1,13 @@
+name: ImperiumCore
+authors: [Anml]
+version: 1.0
+main: net.anmlmc.ImperiumCore.Main
+commands:
+  tokens:
+  rank:
+  ban:
+  tempban:
+  mute:
+  tempban:
+  unmute:
+  kick:
