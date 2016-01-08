@@ -2,6 +2,8 @@ package net.anmlmc.ImperiumCore;
 
 import net.anmlmc.ImperiumCore.ImperiumPlayer.IPlayerManager;
 import net.anmlmc.ImperiumCore.MySQL.MySQL;
+import net.anmlmc.ImperiumCore.Ranks.Commands.RankCommand;
+import net.anmlmc.ImperiumCore.Ranks.Commands.TokensCommand;
 import org.bukkit.Bukkit;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.PluginManager;
@@ -51,9 +53,13 @@ public class Main extends JavaPlugin implements Listener {
 
     public void registerEvents() {
         PluginManager pm = Bukkit.getServer().getPluginManager();
+
+        pm.registerEvents(this, this);
     }
 
     public void registerCommands() {
+        getCommand("rank").setExecutor(new RankCommand(this));
+        getCommand("tokens").setExecutor(new TokensCommand(this));
     }
 
     public void registerManagers() {
