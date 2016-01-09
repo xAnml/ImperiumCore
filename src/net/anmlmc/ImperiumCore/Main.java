@@ -63,6 +63,7 @@ public class Main extends JavaPlugin implements Listener {
 
         pm.registerEvents(this, this);
         pm.registerEvents(new PunishmentListeners(this), this);
+        pm.registerEvents(iPlayerManager, this);
     }
 
     public void registerCommands() {
