@@ -40,7 +40,7 @@ public class IPlayerManager {
         IPlayer iPlayer = new IPlayer(player);
         players.put(player, iPlayer);
 
-        if (!iPlayer.hasRank()) {
+        if (!iPlayer.exists()) {
             ranks.put(player, Rank.DEFAULT);
         } else {
             ranks.put(player, iPlayer.getSQLRank());

@@ -42,7 +42,7 @@ public class IPlayer {
     }
 
     public void setSQLRank(Rank rank) {
-        if (!hasRank()) {
+        if (!exists()) {
             try {
 
                 mySQL.executeUpdate("INSERT INTO PlayerInfo (`UUID`, `Rank`) VALUES ('" + offlinePlayer.getUniqueId() + "','" + rank.name() + "')");
@@ -75,10 +75,10 @@ public class IPlayer {
         setSQLRank(rank);
     }
 
-    public boolean hasRank() {
+    public boolean exists() {
 
         try {
-            ResultSet rs = mySQL.getResultSet("SELECT Rank FROM PlayerInfo WHERE UUID='" + offlinePlayer.getUniqueId() + "'");
+            ResultSet rs = mySQL.getResultSet("SELECT * FROM PlayerInfo WHERE UUID='" + offlinePlayer.getUniqueId() + "'");
             return rs.next();
         } catch (SQLException e) {
             e.printStackTrace();
