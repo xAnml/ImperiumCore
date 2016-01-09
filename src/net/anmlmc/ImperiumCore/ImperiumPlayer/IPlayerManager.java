@@ -1,7 +1,6 @@
 package net.anmlmc.ImperiumCore.ImperiumPlayer;
 
 import net.anmlmc.ImperiumCore.Main;
-import net.anmlmc.ImperiumCore.Punishments.Punishment;
 import net.anmlmc.ImperiumCore.Ranks.Rank;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
@@ -13,7 +12,6 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -25,14 +23,12 @@ public class IPlayerManager implements Listener {
     private Map<Player, IPlayer> players;
     private Map<Player, Rank> ranks;
     private Map<Player, Integer> tokens;
-    private Map<Player, List<Punishment>> punishments;
 
     public IPlayerManager(Main instance) {
         this.instance = instance;
         players = new HashMap<>();
         ranks = new HashMap<>();
         tokens = new HashMap<>();
-        punishments = new HashMap<>();
     }
 
     public Map<Player, IPlayer> getPlayers() {
@@ -45,10 +41,6 @@ public class IPlayerManager implements Listener {
 
     public Map<Player, Integer> getTokens() {
         return tokens;
-    }
-
-    public Map<Player, List<Punishment>> getPunishments() {
-        return punishments;
     }
 
     @EventHandler(priority = EventPriority.HIGH)
@@ -85,7 +77,6 @@ public class IPlayerManager implements Listener {
         players.clear();
         ranks.clear();
         tokens.clear();
-        punishments.clear();
 
         for (Player player : Bukkit.getOnlinePlayers()) {
             addIPlayer(player);
@@ -106,7 +97,6 @@ public class IPlayerManager implements Listener {
     }
 
 
-    //EDIT TO FIT BUNGEECORD REQUIREMENTS
     public void staff(String message) {
         for (Player p : Bukkit.getOnlinePlayers()) {
             if (p.hasPermission("imperiumcore.staff")) {

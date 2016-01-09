@@ -11,3 +11,4 @@ commands:
   tempban:
   unmute:
   kick:
+  warn:
