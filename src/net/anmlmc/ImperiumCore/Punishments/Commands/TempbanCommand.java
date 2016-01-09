@@ -74,7 +74,7 @@ public class TempbanCommand implements CommandExecutor {
         }
 
         StringBuilder sb = new StringBuilder();
-        for (int i = 1; i < args.length; i++) {
+        for (int i = 2; i < args.length; i++) {
             if (i != args.length - 1)
                 sb.append(args[i] + " ");
             else
@@ -88,7 +88,7 @@ public class TempbanCommand implements CommandExecutor {
         punishmentManager.addPunishment(tempban);
 
         String sName = creator == null ? "§6Console" : iPlayerManager.getIPlayer(Bukkit.getOfflinePlayer(creator)).getTag();
-        iPlayerManager.staff("§9[STAFF] " + sName + " §7has temp-banned " + iPlayer.getTag() + " §7for §3" + args[2].toLowerCase() + " §7with reason: §a" + reason + "§7.");
+        iPlayerManager.staff("§9[STAFF] " + sName + " §7has globally temp-banned " + iPlayer.getTag() + " §7for §3" + args[1].toLowerCase() + " §7with reason: §a" + reason + "§7.");
 
         if (offlinePlayer.isOnline()) {
             offlinePlayer.getPlayer().kickPlayer(tempban.getMessage());

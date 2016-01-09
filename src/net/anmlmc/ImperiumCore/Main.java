@@ -1,12 +1,13 @@
 package net.anmlmc.ImperiumCore;
 
+import net.anmlmc.ImperiumCore.ImperiumPlayer.IPlayerListeners;
 import net.anmlmc.ImperiumCore.ImperiumPlayer.IPlayerManager;
 import net.anmlmc.ImperiumCore.MySQL.MySQL;
 import net.anmlmc.ImperiumCore.Punishments.Commands.*;
 import net.anmlmc.ImperiumCore.Punishments.PunishmentListeners;
 import net.anmlmc.ImperiumCore.Punishments.PunishmentManager;
 import net.anmlmc.ImperiumCore.Ranks.Commands.RankCommand;
-import net.anmlmc.ImperiumCore.Ranks.Commands.TokensCommand;
+import net.anmlmc.ImperiumCore.ImperiumPlayer.Commands.TokensCommand;
 import org.bukkit.Bukkit;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.PluginManager;
@@ -23,9 +24,7 @@ public class Main extends JavaPlugin implements Listener {
     private IPlayerManager iPlayerManager;
     private PunishmentManager punishmentManager;
 
-    public static Main getInstance() {
-        return instance;
-    }
+    public static Main getInstance() { return instance; }
     public MySQL getMySQL() {
         return mySQL;
     }
@@ -63,7 +62,7 @@ public class Main extends JavaPlugin implements Listener {
 
         pm.registerEvents(this, this);
         pm.registerEvents(new PunishmentListeners(this), this);
-        pm.registerEvents(iPlayerManager, this);
+        pm.registerEvents(new IPlayerListeners(this), this);
     }
 
     public void registerCommands() {
@@ -75,6 +74,8 @@ public class Main extends JavaPlugin implements Listener {
         getCommand("tempmute").setExecutor(new TempmuteCommand(this));
         getCommand("kick").setExecutor(new KickCommand(this));
         getCommand("warn").setExecutor(new WarnCommand(this));
+        getCommand("unban").setExecutor(new UnbanCommand(this));
+        getCommand("unmute").setExecutor(new UnmuteCommand(this));
     }
 
     public void registerManagers() {

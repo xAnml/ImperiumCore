@@ -1,9 +1,8 @@
-package net.anmlmc.ImperiumCore.Ranks.Commands;
+package net.anmlmc.ImperiumCore.ImperiumPlayer.Commands;
 
 import net.anmlmc.ImperiumCore.ImperiumPlayer.IPlayer;
 import net.anmlmc.ImperiumCore.ImperiumPlayer.IPlayerManager;
 import net.anmlmc.ImperiumCore.Main;
-import net.anmlmc.ImperiumCore.Ranks.Rank;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.command.Command;

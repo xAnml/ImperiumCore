@@ -1,6 +1,5 @@
 package net.anmlmc.ImperiumCore.Punishments;
 
-import net.anmlmc.ImperiumCore.ImperiumPlayer.IPlayer;
 import net.anmlmc.ImperiumCore.ImperiumPlayer.IPlayerManager;
 import net.anmlmc.ImperiumCore.Main;
 import net.anmlmc.ImperiumCore.MySQL.MySQL;
@@ -9,6 +8,7 @@ import org.bukkit.Bukkit;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.TimeZone;
 import java.util.UUID;
 
 /**
@@ -51,34 +51,43 @@ public class Punishment {
     public long getCreated() { return created; }
     public void setCreated(long value) { created = value; }
     public long getExpires() { return expires; }
-    public boolean hasExpired() { return expires == 0 || (expires != -1 && expires <= System.currentTimeMillis()); }
+    public void setExpires(long value) { expires = value; }
+    public boolean hasExpired() { return expires == 0 || (expires != -1 && (created + expires) <= System.currentTimeMillis()); }
     public String getEndTimestamp() {
         final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+        DATE_FORMAT.setTimeZone(TimeZone.getTimeZone("EST"));
         return DATE_FORMAT.format(new Date(created + expires));
     }
     public String getReason() { return reason; }
     public String getMessage() {
         String message = "";
-        IPlayer pun = iPlayerManager.getIPlayer(Bukkit.getOfflinePlayer(punisher));
+        String tag = punisher != null ? iPlayerManager.getIPlayer(Bukkit.getOfflinePlayer(punisher)).getTag() : "§6Console";
         switch (type.name()) {
             case "BAN":
                 message =  "§7You are permanently banned from §cImperium Network§7:\n\n" +
-                        "§7Reason: §f" + reason + " §8- " + pun.getTag();
+                        "§7Reason: §f" + reason + " §8- " + tag;
+                break;
             case "TEMPBAN":
                 message = "§7You are temporarily banned from §cImperium Network§7:\n\n" +
-                        "§7Reason: §f" + reason + " §8- " + pun.getTag() + "\n" +
-                        "§7Unban Time: §f" + getEndTimestamp() + "\n\n";
+                        "§7Reason: §f" + reason + " §8- " + tag + "\n" +
+                        "§7Unban Info: §f" + getEndTimestamp() + "\n\n";
+                break;
             case "MUTE":
-                message = "§7You have been muted by " + pun.getTag() + " §7for: §a" + reason + "§7.";
+                message = "§7You have been muted by " + tag + " §7for: §a" + reason + "§7.";
+                break;
             case "TEMPMUTE":
-                message = "§7You have been temporarily muted until §c" + getEndTimestamp() + " §7by " + pun.getTag() + " §7for: §a" + reason + "§7.";
+                message = "§7You have been temporarily muted until §c" + getEndTimestamp() + " §7by " + tag + " §7for: §a" + reason + "§7.";
+                break;
             case "WARNING":
-                message = "§7You have been warned by " + pun.getTag() + " §7for: §a" + reason + "§7.";
+                message = "§7You have been warned by " + tag + " §7with reason: §a" + reason + "§7.";
+                break;
             case "KICK":
                 message = "§7You have been kicked from §cImperium Network§7:\n\n" +
-                        "§7Reason: §f" + reason + " §8- " + pun.getTag();
+                        "§7Reason: §f" + reason + " §8- " + tag;
+                        break;
             default:
-                message =  "§cError in Ban Type! Contact an administrator of Imperium Network.";
+                message = "§cError in Ban Type! Contact an administrator of Imperium Network.";
+                break;
         }
 
         return message;
@@ -86,9 +95,6 @@ public class Punishment {
     public boolean isExecuted() { return executed; }
     public void setExecuted(boolean value) { executed = value; }
     public void execute() {
-
-        if(type.equals(PunishmentType.KICK) || type.equals(PunishmentType.WARNING))
-            return;
 
         if (executed) {
             try {

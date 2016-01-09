@@ -68,7 +68,7 @@ public class WarnCommand implements CommandExecutor {
         punishmentManager.addPunishment(warning);
 
         String sName = creator == null ? "§6Console" : iPlayerManager.getIPlayer(Bukkit.getOfflinePlayer(creator)).getTag();
-        iPlayerManager.staff("§9[STAFF] " + sName + " §7has kicked " + iPlayer.getTag() + " §7with reason: §a" + reason + "§7.");
+        iPlayerManager.staff("§9[STAFF] " + sName + " §7has warned " + iPlayer.getTag() + " §7with reason: §a" + reason + "§7.");
 
         player.sendMessage(warning.getMessage());
 

@@ -7,8 +7,9 @@ commands:
   rank:
   ban:
   tempban:
+  unban:
   mute:
-  tempban:
+  tempmute:
   unmute:
   kick:
   warn:

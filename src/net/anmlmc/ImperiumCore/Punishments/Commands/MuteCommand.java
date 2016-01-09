@@ -81,7 +81,7 @@ public class MuteCommand implements CommandExecutor {
         punishmentManager.addPunishment(mute);
 
         String sName = creator == null ? "§6Console" : iPlayerManager.getIPlayer(Bukkit.getOfflinePlayer(creator)).getTag();
-        iPlayerManager.staff("§9[STAFF] " + sName + " §7has muted " + iPlayer.getTag() + " §7with reason: §a" + reason + "§7.");
+        iPlayerManager.staff("§9[STAFF] " + sName + " §7has globally muted " + iPlayer.getTag() + " §7with reason: §a" + reason + "§7.");
 
         return true;
     }

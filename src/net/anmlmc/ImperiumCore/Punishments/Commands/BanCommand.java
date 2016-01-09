@@ -81,7 +81,7 @@ public class BanCommand implements CommandExecutor {
         punishmentManager.addPunishment(ban);
 
         String sName = creator == null ? "§6Console" : iPlayerManager.getIPlayer(Bukkit.getOfflinePlayer(creator)).getTag();
-        iPlayerManager.staff("§9[STAFF] " + sName + " §7has banned " + iPlayer.getTag() + " §7with reason: §a" + reason + "§7.");
+        iPlayerManager.staff("§9[STAFF] " + sName + " §7has globally banned " + iPlayer.getTag() + " §7with reason: §a" + reason + "§7.");
 
         if (offlinePlayer.isOnline()) {
             offlinePlayer.getPlayer().kickPlayer(ban.getMessage());

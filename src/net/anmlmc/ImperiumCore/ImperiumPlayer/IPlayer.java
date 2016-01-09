@@ -59,7 +59,7 @@ public class IPlayer {
     }
 
     public Rank getRank() {
-        if (player.isOnline()) {
+        if (offlinePlayer.isOnline()) {
             return iPlayerManager.getRanks().get(player);
         }
 

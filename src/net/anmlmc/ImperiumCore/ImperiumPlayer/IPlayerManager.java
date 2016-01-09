@@ -5,11 +5,6 @@ import net.anmlmc.ImperiumCore.Ranks.Rank;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
-import org.bukkit.event.EventHandler;
-import org.bukkit.event.EventPriority;
-import org.bukkit.event.Listener;
-import org.bukkit.event.player.PlayerJoinEvent;
-import org.bukkit.event.player.PlayerQuitEvent;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -17,7 +12,7 @@ import java.util.Map;
 /**
  * Created by Anml on 1/4/16.
  */
-public class IPlayerManager implements Listener {
+public class IPlayerManager {
 
     Main instance;
     private Map<Player, IPlayer> players;
@@ -34,32 +29,18 @@ public class IPlayerManager implements Listener {
     public Map<Player, IPlayer> getPlayers() {
         return players;
     }
-
     public Map<Player, Rank> getRanks() {
         return ranks;
     }
-
     public Map<Player, Integer> getTokens() {
         return tokens;
-    }
-
-    @EventHandler(priority = EventPriority.HIGH)
-    public void onPlayerJoin(final PlayerJoinEvent e) {
-        Player player = e.getPlayer();
-        addIPlayer(player);
-    }
-
-    @EventHandler(priority = EventPriority.HIGH)
-    public void onPlayerQuit(final PlayerQuitEvent e) {
-        Player player = e.getPlayer();
-        removeIPlayer(player);
     }
 
     public void addIPlayer(Player player) {
         IPlayer iPlayer = new IPlayer(player);
         players.put(player, iPlayer);
 
-        if (iPlayer.hasRank()) {
+        if (!iPlayer.hasRank()) {
             ranks.put(player, Rank.DEFAULT);
         } else {
             ranks.put(player, iPlayer.getSQLRank());
@@ -95,7 +76,6 @@ public class IPlayerManager implements Listener {
 
         return new IPlayer(player);
     }
-
 
     public void staff(String message) {
         for (Player p : Bukkit.getOnlinePlayers()) {

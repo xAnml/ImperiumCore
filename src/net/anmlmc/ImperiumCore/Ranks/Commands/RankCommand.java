@@ -59,6 +59,7 @@ public class RankCommand implements CommandExecutor {
 
                 String commander = sender instanceof Player ? iPlayerManager.getIPlayer((Player) sender).getTag() : "§6CONSOLE";
                 iPlayerManager.staff("§9[STAFF] " + commander + " §7has set " + iPlayer.getTag() + "§7's rank to " + rank.getName() + "§7.");
+                iPlayer.setRank(rank);
                 return true;
 
             } else if (args[0].equalsIgnoreCase("get")) {
