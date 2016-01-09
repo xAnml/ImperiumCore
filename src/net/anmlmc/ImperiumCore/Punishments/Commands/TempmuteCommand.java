@@ -6,6 +6,7 @@ import net.anmlmc.ImperiumCore.Main;
 import net.anmlmc.ImperiumCore.Punishments.Punishment;
 import net.anmlmc.ImperiumCore.Punishments.PunishmentManager;
 import net.anmlmc.ImperiumCore.Punishments.PunishmentType;
+import net.anmlmc.ImperiumCore.Utils.Utils;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.command.Command;
@@ -24,11 +25,13 @@ public class TempmuteCommand implements CommandExecutor {
     private Main instance;
     private IPlayerManager iPlayerManager;
     private PunishmentManager punishmentManager;
+    private Utils utils;
 
     public TempmuteCommand(Main instance) {
         this.instance = instance;
         iPlayerManager = instance.getIPlayerManager();
         punishmentManager = instance.getPunishmentManager();
+        utils = instance.getUtils();
     }
 
     @Override
@@ -66,7 +69,7 @@ public class TempmuteCommand implements CommandExecutor {
             }
         }
 
-        long length = punishmentManager.longValue(args[1]);
+        long length = utils.longLength(args[1]);
 
         if (length == 0) {
             sender.sendMessage("§cYou must enter a correct length.");
@@ -88,7 +91,7 @@ public class TempmuteCommand implements CommandExecutor {
         punishmentManager.addPunishment(tempmute);
 
         String sName = creator == null ? "§6Console" : iPlayerManager.getIPlayer(Bukkit.getOfflinePlayer(creator)).getTag();
-        iPlayerManager.staff("§9[STAFF] " + sName + " §7has globally temp-muted " + iPlayer.getTag() + " §7for §3" + args[1].toLowerCase() + " §7with reason: §a" + reason + "§7.");
+        iPlayerManager.staff("§9[STAFF] " + sName + " §7has globally temp-muted " + iPlayer.getTag() + " §7for §3" + utils.actualLength(args[1]) + " §7with reason: §a" + reason + "§7.");
 
         return true;
     }

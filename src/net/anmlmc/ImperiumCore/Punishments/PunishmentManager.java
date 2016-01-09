@@ -98,35 +98,4 @@ public class PunishmentManager {
 
         punishment.execute();
     }
-
-    public long longValue(String length) {
-        long amount = 0;
-        String temp = "";
-
-        for (char c : length.toLowerCase().toCharArray()) {
-            if (Character.isDigit(c)) {
-                temp += c;
-            } else {
-                if (temp.length() != 0) {
-                    switch (c) {
-                        case 'd':
-                            amount += (Integer.parseInt(temp) * 86400000);
-                            break;
-                        case 'h':
-                            amount += (Integer.parseInt(temp) * 3600000);
-                            break;
-                        case 'm':
-                            amount += (Integer.parseInt(temp) * 60000);
-                            break;
-                        case 's':
-                            amount += (Integer.parseInt(temp) * 1000);
-                            break;
-                    }
-                    temp = "";
-                }
-            }
-        }
-
-        return amount;
-    }
 }

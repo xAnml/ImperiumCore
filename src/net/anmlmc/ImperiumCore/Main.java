@@ -8,6 +8,7 @@ import net.anmlmc.ImperiumCore.Punishments.PunishmentListeners;
 import net.anmlmc.ImperiumCore.Punishments.PunishmentManager;
 import net.anmlmc.ImperiumCore.Ranks.Commands.RankCommand;
 import net.anmlmc.ImperiumCore.ImperiumPlayer.Commands.TokensCommand;
+import net.anmlmc.ImperiumCore.Utils.Utils;
 import org.bukkit.Bukkit;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.PluginManager;
@@ -23,6 +24,7 @@ public class Main extends JavaPlugin implements Listener {
     private MySQL mySQL;
     private IPlayerManager iPlayerManager;
     private PunishmentManager punishmentManager;
+    private Utils utils;
 
     public static Main getInstance() { return instance; }
     public MySQL getMySQL() {
@@ -33,6 +35,9 @@ public class Main extends JavaPlugin implements Listener {
     }
     public PunishmentManager getPunishmentManager() {
         return punishmentManager;
+    }
+    public Utils getUtils() {
+        return utils;
     }
 
     @Override
@@ -82,5 +87,6 @@ public class Main extends JavaPlugin implements Listener {
         mySQL = new MySQL(this);
         iPlayerManager = new IPlayerManager(this);
         punishmentManager = new PunishmentManager(this);
+        utils = new Utils();
     }
 }
