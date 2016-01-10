@@ -3,8 +3,8 @@
     <output-path>$PROJECT_DIR$/../../Jars</output-path>
     <root id="archive" name="ImperiumCore.jar">
       <element id="module-output" name="ImperiumCore" />
-      <element id="file-copy" path="$PROJECT_DIR$/src/net/anmlmc/ImperiumCore/config.yml" />
-      <element id="file-copy" path="$PROJECT_DIR$/src/net/anmlmc/ImperiumCore/plugin.yml" />
+      <element id="file-copy" path="$PROJECT_DIR$/src/net/playimperium/ImperiumCore/config.yml" />
+      <element id="file-copy" path="$PROJECT_DIR$/src/net/playimperium/ImperiumCore/plugin.yml" />
     </root>
   </artifact>
 </component>

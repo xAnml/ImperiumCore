@@ -1,6 +1,6 @@
-package net.anmlmc.ImperiumCore.Punishments;
+package net.playimperium.ImperiumCore.Punishments;
 
-import net.anmlmc.ImperiumCore.Main;
+import net.playimperium.ImperiumCore.Main;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;

@@ -1,11 +1,11 @@
-package net.anmlmc.ImperiumCore.Punishments.Commands;
+package net.playimperium.ImperiumCore.Punishments.Commands;
 
-import net.anmlmc.ImperiumCore.ImperiumPlayer.IPlayer;
-import net.anmlmc.ImperiumCore.ImperiumPlayer.IPlayerManager;
-import net.anmlmc.ImperiumCore.Main;
-import net.anmlmc.ImperiumCore.Punishments.Punishment;
-import net.anmlmc.ImperiumCore.Punishments.PunishmentManager;
-import net.anmlmc.ImperiumCore.Punishments.PunishmentType;
+import net.playimperium.ImperiumCore.ImperiumPlayer.IPlayer;
+import net.playimperium.ImperiumCore.ImperiumPlayer.IPlayerManager;
+import net.playimperium.ImperiumCore.Main;
+import net.playimperium.ImperiumCore.Punishments.Punishment;
+import net.playimperium.ImperiumCore.Punishments.PunishmentManager;
+import net.playimperium.ImperiumCore.Punishments.PunishmentType;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.command.Command;

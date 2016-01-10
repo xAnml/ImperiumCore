@@ -1,8 +1,8 @@
-package net.anmlmc.ImperiumCore.Punishments;
+package net.playimperium.ImperiumCore.Punishments;
 
-import net.anmlmc.ImperiumCore.ImperiumPlayer.IPlayerManager;
-import net.anmlmc.ImperiumCore.Main;
-import net.anmlmc.ImperiumCore.MySQL.MySQL;
+import net.playimperium.ImperiumCore.ImperiumPlayer.IPlayerManager;
+import net.playimperium.ImperiumCore.Main;
+import net.playimperium.ImperiumCore.MySQL.MySQL;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;

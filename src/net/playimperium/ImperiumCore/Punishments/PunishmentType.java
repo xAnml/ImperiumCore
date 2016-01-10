@@ -1,4 +1,4 @@
-package net.anmlmc.ImperiumCore.Punishments;
+package net.playimperium.ImperiumCore.Punishments;
 
 /**
  * Created by Anml on 1/8/16.

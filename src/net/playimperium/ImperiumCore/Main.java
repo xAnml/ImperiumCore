@@ -1,14 +1,14 @@
-package net.anmlmc.ImperiumCore;
+package net.playimperium.ImperiumCore;
 
-import net.anmlmc.ImperiumCore.ImperiumPlayer.IPlayerListeners;
-import net.anmlmc.ImperiumCore.ImperiumPlayer.IPlayerManager;
-import net.anmlmc.ImperiumCore.MySQL.MySQL;
-import net.anmlmc.ImperiumCore.Punishments.Commands.*;
-import net.anmlmc.ImperiumCore.Punishments.PunishmentListeners;
-import net.anmlmc.ImperiumCore.Punishments.PunishmentManager;
-import net.anmlmc.ImperiumCore.Ranks.Commands.RankCommand;
-import net.anmlmc.ImperiumCore.ImperiumPlayer.Commands.TokensCommand;
-import net.anmlmc.ImperiumCore.Utils.Utils;
+import net.playimperium.ImperiumCore.ImperiumPlayer.IPlayerListeners;
+import net.playimperium.ImperiumCore.ImperiumPlayer.IPlayerManager;
+import net.playimperium.ImperiumCore.MySQL.MySQL;
+import net.playimperium.ImperiumCore.Punishments.Commands.*;
+import net.playimperium.ImperiumCore.Punishments.PunishmentListeners;
+import net.playimperium.ImperiumCore.Punishments.PunishmentManager;
+import net.playimperium.ImperiumCore.Ranks.Commands.RankCommand;
+import net.playimperium.ImperiumCore.ImperiumPlayer.Commands.TokensCommand;
+import net.playimperium.ImperiumCore.Utils.Utils;
 import org.bukkit.Bukkit;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.PluginManager;

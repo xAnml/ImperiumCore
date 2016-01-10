@@ -1,8 +1,8 @@
-package net.anmlmc.ImperiumCore.ImperiumPlayer.Commands;
+package net.playimperium.ImperiumCore.ImperiumPlayer.Commands;
 
-import net.anmlmc.ImperiumCore.ImperiumPlayer.IPlayer;
-import net.anmlmc.ImperiumCore.ImperiumPlayer.IPlayerManager;
-import net.anmlmc.ImperiumCore.Main;
+import net.playimperium.ImperiumCore.ImperiumPlayer.IPlayer;
+import net.playimperium.ImperiumCore.ImperiumPlayer.IPlayerManager;
+import net.playimperium.ImperiumCore.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.command.Command;

@@ -1,4 +1,8 @@
-package net.anmlmc.ImperiumCore.Utils;
+package net.playimperium.ImperiumCore.Utils;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 /**
  * Created by Anml on 1/9/16.
@@ -75,5 +79,26 @@ public class Utils {
         temp += seconds != 0 ? seconds + "s" : "";
 
         return temp;
+    }
+
+    public String getDifference(Date one, Date two) {
+
+        Date d1 = null;
+        Date d2 = null;
+
+        long diff = d2.getTime() - d1.getTime();
+
+        long diffSeconds = diff / 1000 % 60;
+        long diffMinutes = diff / (60 * 1000) % 60;
+        long diffHours = diff / (60 * 60 * 1000) % 24;
+        long diffDays = diff / (24 * 60 * 60 * 1000);
+
+        List<String> diffs = new ArrayList<>();
+        if((int) diffDays != 0) { diffs.add((int) diffDays + ((int) diffDays != 1 ? "days" : "day")); }
+        if((int) diffHours != 0) { diffs.add((int) diffHours + ((int) diffHours != 1 ? "hours" : "hour")); }
+        if((int) diffMinutes != 0) { diffs.add((int) diffMinutes + ((int) diffMinutes != 1 ? "minutes" : "minute")); }
+        if((int) diffSeconds != 0) { diffs.add((int) diffSeconds + ((int) diffSeconds != 1 ? "seconds" : "second")); }
+
+        return "";
     }
 }

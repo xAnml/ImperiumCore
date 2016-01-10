@@ -1,4 +1,4 @@
-package net.anmlmc.ImperiumCore.Ranks;
+package net.playimperium.ImperiumCore.Ranks;
 
 /**
  * Created by Anml on 1/4/16.

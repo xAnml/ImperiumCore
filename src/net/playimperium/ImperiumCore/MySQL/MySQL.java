@@ -1,6 +1,6 @@
-package net.anmlmc.ImperiumCore.MySQL;
+package net.playimperium.ImperiumCore.MySQL;
 
-import net.anmlmc.ImperiumCore.Main;
+import net.playimperium.ImperiumCore.Main;
 
 import java.sql.*;
 
@@ -19,7 +19,7 @@ public class MySQL {
     private String username;
     private String password;
 
-    public MySQL(net.anmlmc.ImperiumCore.Main instance) {
+    public MySQL(Main instance) {
         this.instance = instance;
 
         host = instance.getConfig().getString("MySQL.Host");
